@@ -30,5 +30,16 @@ it("should not allow plane capacity to be set to a negative number", () => {
 
 });
 
-
+it("should not allow plane capacity to be set to a non-int value", () => {
+    //Arrange
+    let airport = new Airport(15);
+    let expectedOutput = 15;
+   
+    //Act
+    airport.setPlaneCapacity(13.4);
+    let actualOutput = airport.getPlaneCapacity();
+   
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
+   });
 
