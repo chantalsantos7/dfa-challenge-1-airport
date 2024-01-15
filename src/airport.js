@@ -10,7 +10,19 @@ class Airport {
     landPlane(plane)
     {
         if (!plane || !plane.getId()) return;
-        this.planesList.push(plane);
+        if (!this.findPlane(plane.getId()))
+        {
+            this.planesList.push(plane);
+        }
+    }
+
+    findPlane(planeId)
+    {
+        for (let i = 0; i < this.planesList.length; i++)
+        {
+            if (this.planesList[i].getId() === planeId) return true;
+        }
+        return false;
     }
 
     setPlaneCapacity(newPlaneCapacity)

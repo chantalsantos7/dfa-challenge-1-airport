@@ -103,3 +103,34 @@ it("should not allow a null Plane to land at the airport", () => {
 });
 
 
+it("should not let a plane land at the airport if it is already there", () => {
+    //Arrange
+    let airport = new Airport(2);
+    let plane1 = new Plane("DF123");
+    airport.landPlane(plane1);
+    let expectedOutput = 1;
+
+    //Act
+    airport.landPlane(plane1);
+    let actualOutput = airport.planesList.length;
+
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
+});
+
+
+// let airport = new Airport(2);
+//     let plane1 = new Plane("DF123");
+//     let plane2 = new Plane("DF234");
+//     let plane3 = new Plane("DF456");
+//     let expectedOutput;
+//     let actualOutput;
+
+//     //Act
+//     airport.landPlane(plane1);
+//     airport.landPlane(plane2);
+//     airport.landPlane(plane3);
+//     actualOutput = airport.planesList.length;
+
+//     //Assert
+//     assertEquals(actualOutput, expectedOutput);
