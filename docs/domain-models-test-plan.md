@@ -29,6 +29,7 @@
 
 - Test that an error is thrown if negative value is passed as a parameter
 - Test that capacity change function does not accept non-int values passed as a parameter
+- Test that capacity change function does not accept non-number values passed as a parameter
 
 3. As an air traffic controller, I want to be able to instruct a plane to land at the airport, so it's flight can be completed.
 
