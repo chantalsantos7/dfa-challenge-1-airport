@@ -1,5 +1,24 @@
 class Airport {
-    planeCapacity = 0;
+    #planeCapacity;
+
+    constructor(planeCapacity = 0)
+    {
+        this.#planeCapacity = planeCapacity;
+    }
+
+    setPlaneCapacity(newPlaneCapacity)
+    {
+        if (newPlaneCapacity > 0)
+        {
+            this.#planeCapacity = newPlaneCapacity;
+        }
+        
+    }
+
+    getPlaneCapacity()
+    {
+        return this.#planeCapacity;
+    }
 }
 
 export default Airport;

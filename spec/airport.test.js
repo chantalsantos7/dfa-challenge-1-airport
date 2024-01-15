@@ -10,9 +10,25 @@ it("Test 1 - tests that correct airport capacity is returned.", () => {
     let expectedOutput = 0;
 
     //Act
-    let actualOutput = airport.planeCapacity;
+    let actualOutput = airport.getPlaneCapacity();
 
     //Assert
     assertEquals(actualOutput, expectedOutput);
 });
+
+it("should not allow plane capacity to be set to a negative number", () => {
+    //Arrange
+    let airport = new Airport();
+    let expectedOutput = 0;
+
+    //Act
+    airport.setPlaneCapacity(-1);
+    let actualOutput = airport.getPlaneCapacity();
+
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
+
+});
+
+
 

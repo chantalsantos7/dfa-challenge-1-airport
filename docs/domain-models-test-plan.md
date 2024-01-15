@@ -16,7 +16,8 @@
 | **Plane** | id@string |  | |
 
 ***Tests***
-- Test that correct airport capacity is returned 
+
+- Test that correct airport capacity is returned.
 
 2. As an airport executive, I want to be able to change the maximum plane capacity of the airport, in case we need to build an extension or downsize.
 
@@ -25,9 +26,9 @@
 | **Airport** | planeCapacity@int | changeAirportCapacity(@int) | @Void |
 
 ***Tests***
-- Test that airport capacity can be changed
+
 - Test that an error is thrown if negative value is passed as a parameter
-- Test that capacity change function throws an error if an invalid data type is passed as a parameter
+- Test that capacity change function does not accept non-int values passed as a parameter
 
 3. As an air traffic controller, I want to be able to instruct a plane to land at the airport, so it's flight can be completed.
 
@@ -37,6 +38,7 @@
 | **Plane** | id@string |  | |
 
 ***Tests***
+
 - Test that a plane can land at airport - planesArray length increased by 1
 - Test that specified plane is now at airport - planeID can be found in the planesArray
 - Test that a null Plane can't be added to the array
@@ -51,6 +53,7 @@
 | **Plane** | id@string |  | |
 
 ***Tests***
+
 - test that plane has taken off from airport - planesArray length decreased by 1
 - test that the plane that takes off was the plane that was told to take off - plane ID can't be found in array any more
 - test that array doesn't change if the planeID supplied is not already at the airport
@@ -64,6 +67,7 @@
 | **Airport** | planeCapacity@int <br> planes@Array[@Plane] | isAirportFull() | @Boolean |
 
 ***Tests***
+
 - test that function returns true when the airport is full
 - test that function returns false when the airport is not full
 
@@ -75,6 +79,7 @@
 | **Plane** | id@string |  | |
 
 ***Tests***
+
 - test that function returns true when the plane is at the airport - plane's ID can be found in the planesArray
 - test that function returns false when the plane is not at the airport - plane's ID cannot be found in the planesArray
 - test that function throws an error if a null value is passed as a parameter
