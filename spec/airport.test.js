@@ -4,7 +4,7 @@ import Airport from "../src/airport.js";
 
 //Test 1
 
-it("Test 1 - tests that correct airport capacity is returned.", () => {
+it("should return correct airport capacity", () => {
     //Arrange
     let airport = new Airport();
     let expectedOutput = 0;
@@ -30,7 +30,7 @@ it("should not allow plane capacity to be set to a negative number", () => {
 
 });
 
-it("should not allow plane capacity to be set to a non-int value", () => {
+it("should not allow plane capacity to be set to a non-int number value", () => {
     //Arrange
     let airport = new Airport(15);
     let expectedOutput = 15;
@@ -38,8 +38,19 @@ it("should not allow plane capacity to be set to a non-int value", () => {
     //Act
     airport.setPlaneCapacity(13.4);
     let actualOutput = airport.getPlaneCapacity();
-   
+    
     //Assert
     assertEquals(actualOutput, expectedOutput);
    });
+
+it("should not allow plane capacity to be set to a non-int, non-number value", () => {
+    let airport = new Airport(13);
+    let expectedOutput = 13;
+
+    airport.setPlaneCapacity("hi");
+    let actualOutput = airport.getPlaneCapacity();
+
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
+});
 

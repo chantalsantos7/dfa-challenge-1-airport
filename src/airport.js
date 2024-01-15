@@ -8,7 +8,7 @@ class Airport {
 
     setPlaneCapacity(newPlaneCapacity)
     {
-        if (newPlaneCapacity > 0)
+        if (newPlaneCapacity > 0 && Number.isInteger(newPlaneCapacity))
         {
             this.#planeCapacity = newPlaneCapacity;
         }
