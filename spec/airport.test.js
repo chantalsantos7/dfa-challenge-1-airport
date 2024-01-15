@@ -59,7 +59,7 @@ console.log("\n***Plane Landing Tests***\n");
 it("should be able to tell a plane to land at the airport", () => {
     //Arrange
     let airport = new Airport(5);
-    let plane = new Plane();
+    let plane = new Plane("DF123");
     let expectedOutput = 1;
     let actualOutput;
 
@@ -71,5 +71,19 @@ it("should be able to tell a plane to land at the airport", () => {
     assertEquals(actualOutput, expectedOutput);
 });
 
+it("should not allow a plane without an ID to land at the airport", () => {
 
+    //Arrange
+    let airport = new Airport(5);
+    let plane = new Plane();
+    let expectedOutput = 0;
+    let actualOutput;
+
+    //Act
+    airport.landPlane(plane);
+    actualOutput = airport.planesList.length;
+
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
+});
 
