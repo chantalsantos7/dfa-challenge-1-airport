@@ -1,6 +1,7 @@
 //import statements
 import { assertEquals, assertBooleanFalse, assertBooleanTrue, it } from "./testing-framework/test-framework.js";
 import Airport from "../src/airport.js";
+import Plane from "../src/plane.js";
 
 //Test 1
 console.log("***Airport Capacity Tests***\n");
@@ -56,6 +57,7 @@ it("should not allow plane capacity to be set to a non-number value", () => {
 
 console.log("\n***Plane Landing Tests***\n");
 it("should be able to tell a plane to land at the airport", () => {
+    //Arrange
     let airport = new Airport(5);
     let plane = new Plane();
     let expectedOutput = 1;
@@ -68,4 +70,6 @@ it("should be able to tell a plane to land at the airport", () => {
     //Assert
     assertEquals(actualOutput, expectedOutput);
 });
+
+
 

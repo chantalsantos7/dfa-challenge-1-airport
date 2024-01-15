@@ -1,9 +1,15 @@
 class Airport {
     #planeCapacity;
+    planesList = [];
 
     constructor(planeCapacity = 0)
     {
         this.#planeCapacity = planeCapacity;
+    }
+
+    landPlane(plane)
+    {
+        this.planesList.push(plane);
     }
 
     setPlaneCapacity(newPlaneCapacity)
