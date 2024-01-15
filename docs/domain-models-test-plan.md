@@ -70,7 +70,7 @@
 ***Tests***
 
 - test that function returns true when the airport is full
-- test that function returns false when the airport is not full
+- test that planes cannot land at the airport when it is full
 
 6. As an air traffic controller, I want to check if a plane is already at the airport, so I can either tell it to take off or allow it to land.
 

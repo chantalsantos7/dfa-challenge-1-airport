@@ -35,14 +35,14 @@ it("should not allow plane capacity to be set to a non-int number value", () => 
     //Arrange
     let airport = new Airport(15);
     let expectedOutput = 15;
-   
+
     //Act
     airport.setPlaneCapacity(13.4);
     let actualOutput = airport.getPlaneCapacity();
-    
+
     //Assert
     assertEquals(actualOutput, expectedOutput);
-   });
+});
 
 it("should not allow plane capacity to be set to a non-number value", () => {
     let airport = new Airport(13);
@@ -86,4 +86,20 @@ it("should not allow a plane without an ID to land at the airport", () => {
     //Assert
     assertEquals(actualOutput, expectedOutput);
 });
+
+it("should not allow a null Plane to land at the airport", () => {
+    //Arrange
+    let airport = new Airport(5);
+    let plane = null;
+    let expectedOutput = 0;
+    let actualOutput;
+
+    //Act
+    airport.landPlane(plane);
+    actualOutput = airport.planesList.length;
+
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
+});
+
 
