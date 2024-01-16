@@ -102,12 +102,12 @@ it("should test that the plane supplied has landed at the airport", () => {
     //Arrange
     let airport = new Airport(5);
     let plane = new Plane("DF123");
-    let expectedOutput = plane.getId();
+    let expectedOutput = 0;
     let actualOutput;
 
     //Act
     airport.landPlane(plane);
-    actualOutput = airport.isPlaneAtAirport(); //modify something to find the plane
+    actualOutput = airport.findPlane(plane); //modify something to find the plane
 
     //Assert
     assertEquals(actualOutput, expectedOutput);

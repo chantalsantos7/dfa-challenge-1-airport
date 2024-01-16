@@ -10,27 +10,22 @@ class Airport {
     landPlane(plane)
     {
         if (!plane || !plane.getId()) return;
-        if (!this.isPlaneAtAirport(plane.getId()))
+        if (!this.isPlaneAtAirport(plane))
         {
             this.#planesList.push(plane);
         }
     }
 
-    isPlaneAtAirport(planeId)
+    isPlaneAtAirport(planeToFind)
     {
-        if (this.#planesList.filter((plane) => plane.planeId === planeId).length === 1) return true;
-        // for (let i = 0; i < this.#planesList.length; i++)
-        // {
-        //     if (this.#planesList[i].getId() === planeId) return true;
-        // }
-        return false;
+        return this.#planesList.includes(planeToFind);
     }
 
-    findPlane(planeId)
+    findPlane(plane)
     {
         for (let i = 0; i < this.#planesList.length; i++)
         {
-            if (this.#planesList[i].getId() === planeId) return i;
+            if (this.#planesList[i] === plane) return i;
         }
         return -1;
     }
