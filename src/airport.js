@@ -37,6 +37,12 @@ class Airport {
     {
         return this.#planeCapacity;
     }
+
+    isAirportFull()
+    {
+        if (this.planesList.length === this.#planeCapacity) return true;
+        return false;
+    }
 }
 
 export default Airport;

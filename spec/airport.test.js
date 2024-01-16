@@ -55,6 +55,33 @@ it("should not allow plane capacity to be set to a non-number value", () => {
     assertEquals(actualOutput, expectedOutput);
 });
 
+
+it ("isAirportFull should return true when the airport has the maximum number of planes", () => {
+    //Arrange
+    let airport = new Airport(1);
+    let plane = new Plane("DF2314");
+
+    //Act
+    airport.landPlane(plane);
+    let actualOutput = airport.isAirportFull();
+
+    //Assert
+    assertBooleanTrue(actualOutput);
+});
+
+it ("isAirportFull should return false when the airport does not have the maximum number of planes", () => {
+    //Arrange
+    let airport = new Airport(2);
+    let plane = new Plane("DF2314");
+
+    //Act
+    airport.landPlane(plane);
+    let actualOutput = airport.isAirportFull();
+
+    //Assert
+    assertBooleanFalse(actualOutput);
+});
+
 console.log("\n***Plane Landing Tests***\n");
 it("should be able to tell a plane to land at the airport", () => {
     //Arrange
@@ -132,8 +159,6 @@ it("should not let a plane land at the airport if it is already there", () => {
     //Assert
     assertEquals(actualOutput, expectedOutput);
 });
-
-
 // let airport = new Airport(2);
 //     let plane1 = new Plane("DF123");
 //     let plane2 = new Plane("DF234");

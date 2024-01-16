@@ -44,7 +44,19 @@
 - Test that specified plane is now at airport - planeID can be found in the planesArray
 - Test that a null Plane can't be added to the array
 - Test that a Plane without an ID can't be added to the array
-- test that function throws an error if an invalid data type is passed as a parameter
+- test that the plane is not added to the array again if it's already in the array
+
+As an air traffic controller, I want to see when the airport is full, so I know whether additional planes can land.
+
+| Objects | Properties | Messages | Outputs |
+| ----------- | ----------- | ----------- | ----------- |
+| **Airport** | planeCapacity@int <br> planes@Array[@Plane] | isAirportFull() | @Boolean |
+
+***Tests***
+
+- test that function returns true when the airport is full
+- test that function returns false when the airport is not full
+- test that planes cannot land at the airport when it is full
 
 4. As an air traffic controller, I want to be able to instruct a plane to take off from the airport, in order to free up space at the airport.
 
@@ -60,17 +72,6 @@
 - test that array doesn't change if the planeID supplied is not already at the airport
 - test that array doesn't change if the parameter Plane is null 
 - test that function throws an error if an invalid data type is passed as a parameter
-
-5. As an air traffic controller, I want to see when the airport is full, so I know whether additional planes can land.
-
-| Objects | Properties | Messages | Outputs |
-| ----------- | ----------- | ----------- | ----------- |
-| **Airport** | planeCapacity@int <br> planes@Array[@Plane] | isAirportFull() | @Boolean |
-
-***Tests***
-
-- test that function returns true when the airport is full
-- test that planes cannot land at the airport when it is full
 
 6. As an air traffic controller, I want to check if a plane is already at the airport, so I can either tell it to take off or allow it to land.
 
