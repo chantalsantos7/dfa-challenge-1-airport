@@ -172,7 +172,7 @@ it("should not let a plane land at the airport if the airport is full", () => {
     airport.landPlane(plane1);
     airport.landPlane(plane2);
     airport.landPlane(plane3);
-    actualOutput = airport.getNumberOfPlanes();
+    let actualOutput = airport.getNumberOfPlanes();
 
     //Assert
     assertEquals(actualOutput, expectedOutput);

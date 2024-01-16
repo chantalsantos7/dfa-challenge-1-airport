@@ -10,7 +10,7 @@ class Airport {
     landPlane(plane)
     {
         if (!plane || !plane.getId()) return;
-        if (!this.isPlaneAtAirport(plane))
+        if (!this.isPlaneAtAirport(plane) && !this.isAirportFull())
         {
             this.#planesList.push(plane);
         }
