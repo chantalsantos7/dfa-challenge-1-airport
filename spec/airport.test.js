@@ -92,7 +92,7 @@ it("should be able to tell a plane to land at the airport", () => {
 
     //Act
     airport.landPlane(plane);
-    actualOutput = airport.planesList.length;
+    actualOutput = airport.getNumberOfPlanes();
 
     //Assert
     assertEquals(actualOutput, expectedOutput);
@@ -107,7 +107,7 @@ it("should test that the plane supplied has landed at the airport", () => {
 
     //Act
     airport.landPlane(plane);
-    actualOutput = airport.planesList[0].getId();
+    actualOutput = airport.isPlaneAtAirport(); //modify something to find the plane
 
     //Assert
     assertEquals(actualOutput, expectedOutput);
@@ -123,7 +123,7 @@ it("should not allow a plane without an ID to land at the airport", () => {
 
     //Act
     airport.landPlane(plane);
-    actualOutput = airport.planesList.length;
+    actualOutput = airport.getNumberOfPlanes();
 
     //Assert
     assertEquals(actualOutput, expectedOutput);
@@ -138,7 +138,7 @@ it("should not allow a null Plane to land at the airport", () => {
 
     //Act
     airport.landPlane(plane);
-    actualOutput = airport.planesList.length;
+    actualOutput = airport.getNumberOfPlanes();
 
     //Assert
     assertEquals(actualOutput, expectedOutput);
@@ -154,7 +154,7 @@ it("should not let a plane land at the airport if it is already there", () => {
 
     //Act
     airport.landPlane(plane1);
-    let actualOutput = airport.planesList.length;
+    let actualOutput = airport.getNumberOfPlanes();
 
     //Assert
     assertEquals(actualOutput, expectedOutput);
@@ -172,7 +172,7 @@ it("should not let a plane land at the airport if the airport is full", () => {
     airport.landPlane(plane1);
     airport.landPlane(plane2);
     airport.landPlane(plane3);
-    actualOutput = airport.planesList.length;
+    actualOutput = airport.getNumberOfPlanes();
 
     //Assert
     assertEquals(actualOutput, expectedOutput);

@@ -1,6 +1,6 @@
 class Airport {
     #planeCapacity;
-    planesList = [];
+    #planesList = [];
 
     constructor(planeCapacity = 0)
     {
@@ -10,19 +10,34 @@ class Airport {
     landPlane(plane)
     {
         if (!plane || !plane.getId()) return;
-        if (!this.findPlane(plane.getId()))
+        if (!this.isPlaneAtAirport(plane.getId()))
         {
-            this.planesList.push(plane);
+            this.#planesList.push(plane);
         }
+    }
+
+    isPlaneAtAirport(planeId)
+    {
+        if (this.#planesList.filter((plane) => plane.planeId === planeId).length === 1) return true;
+        // for (let i = 0; i < this.#planesList.length; i++)
+        // {
+        //     if (this.#planesList[i].getId() === planeId) return true;
+        // }
+        return false;
     }
 
     findPlane(planeId)
     {
-        for (let i = 0; i < this.planesList.length; i++)
+        for (let i = 0; i < this.#planesList.length; i++)
         {
-            if (this.planesList[i].getId() === planeId) return true;
+            if (this.#planesList[i].getId() === planeId) return i;
         }
-        return false;
+        return -1;
+    }
+
+    getNumberOfPlanes()
+    {
+        return this.#planesList.length;
     }
 
     setPlaneCapacity(newPlaneCapacity)
@@ -40,7 +55,7 @@ class Airport {
 
     isAirportFull()
     {
-        if (this.planesList.length === this.#planeCapacity) return true;
+        if (this.#planesList.length === this.#planeCapacity) return true;
         return false;
     }
 }
