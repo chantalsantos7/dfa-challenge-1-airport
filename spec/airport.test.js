@@ -56,7 +56,7 @@ it("should not allow plane capacity to be set to a non-number value", () => {
 });
 
 
-it ("isAirportFull should return true when the airport has the maximum number of planes", () => {
+it("isAirportFull should return true when the airport has the maximum number of planes", () => {
     //Arrange
     let airport = new Airport(1);
     let plane = new Plane("DF2314");
@@ -69,7 +69,7 @@ it ("isAirportFull should return true when the airport has the maximum number of
     assertBooleanTrue(actualOutput);
 });
 
-it ("isAirportFull should return false when the airport does not have the maximum number of planes", () => {
+it("isAirportFull should return false when the airport does not have the maximum number of planes", () => {
     //Arrange
     let airport = new Airport(2);
     let plane = new Plane("DF2314");
@@ -98,19 +98,19 @@ it("should be able to tell a plane to land at the airport", () => {
     assertEquals(actualOutput, expectedOutput);
 });
 
-it ("should test that the plane supplied has landed at the airport", () => {
-     //Arrange
-     let airport = new Airport(5);
-     let plane = new Plane("DF123");
-     let expectedOutput = plane.getId();
-     let actualOutput;
- 
-     //Act
-     airport.landPlane(plane);
-     actualOutput = airport.planesList[0].getId();
- 
-     //Assert
-     assertEquals(actualOutput, expectedOutput);
+it("should test that the plane supplied has landed at the airport", () => {
+    //Arrange
+    let airport = new Airport(5);
+    let plane = new Plane("DF123");
+    let expectedOutput = plane.getId();
+    let actualOutput;
+
+    //Act
+    airport.landPlane(plane);
+    actualOutput = airport.planesList[0].getId();
+
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
 });
 
 it("should not allow a plane without an ID to land at the airport", () => {
@@ -159,10 +159,25 @@ it("should not let a plane land at the airport if it is already there", () => {
     //Assert
     assertEquals(actualOutput, expectedOutput);
 });
-// let airport = new Airport(2);
-//     let plane1 = new Plane("DF123");
-//     let plane2 = new Plane("DF234");
-//     let plane3 = new Plane("DF456");
+
+it("should not let a plane land at the airport if the airport is full", () => {
+    //Arrange
+    let airport = new Airport(2);
+    let plane1 = new Plane("DF123");
+    let plane2 = new Plane("DF234");
+    let plane3 = new Plane("DF456");
+    let expectedOutput = airport.getPlaneCapacity();
+
+    //Act
+    airport.landPlane(plane1);
+    airport.landPlane(plane2);
+    airport.landPlane(plane3);
+    actualOutput = airport.planesList.length;
+
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
+});
+
 //     let expectedOutput;
 //     let actualOutput;
 

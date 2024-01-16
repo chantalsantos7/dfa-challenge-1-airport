@@ -45,6 +45,7 @@
 - Test that a null Plane can't be added to the array
 - Test that a Plane without an ID can't be added to the array
 - test that the plane is not added to the array again if it's already in the array
+- test that planes cannot land at the airport when it is full
 
 As an air traffic controller, I want to see when the airport is full, so I know whether additional planes can land.
 
@@ -56,7 +57,6 @@ As an air traffic controller, I want to see when the airport is full, so I know 
 
 - test that function returns true when the airport is full
 - test that function returns false when the airport is not full
-- test that planes cannot land at the airport when it is full
 
 4. As an air traffic controller, I want to be able to instruct a plane to take off from the airport, in order to free up space at the airport.
 
