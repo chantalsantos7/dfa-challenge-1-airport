@@ -30,8 +30,7 @@ class Airport {
         if (newPlaneCapacity > 0 && Number.isInteger(newPlaneCapacity))
         {
             this.#planeCapacity = newPlaneCapacity;
-        }
-        
+        }  
     }
 
     getPlaneCapacity()
