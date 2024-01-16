@@ -58,7 +58,7 @@ As an air traffic controller, I want to see when the airport is full, so I know 
 - test that function returns true when the airport is full
 - test that function returns false when the airport is not full
 
-4. As an air traffic controller, I want to be able to instruct a plane to take off from the airport, in order to free up space at the airport.
+As an air traffic controller, I want to be able to instruct a plane to take off from the airport, in order to free up space at the airport.
 
 | Objects | Properties | Messages | Outputs |
 | ----------- | ----------- | ----------- | ----------- |

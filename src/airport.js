@@ -16,6 +16,11 @@ class Airport {
         }
     }
 
+    takeOffPlane(plane)
+    {
+        this.#planesList = this.#planesList.filter(el => el !== plane);
+    }
+
     isPlaneAtAirport(planeToFind)
     {
         return this.#planesList.includes(planeToFind);

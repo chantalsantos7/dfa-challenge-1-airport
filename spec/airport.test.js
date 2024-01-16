@@ -178,14 +178,20 @@ it("should not let a plane land at the airport if the airport is full", () => {
     assertEquals(actualOutput, expectedOutput);
 });
 
-//     let expectedOutput;
-//     let actualOutput;
+console.log("\n***Plane Take-Off Tests***\n");
 
-//     //Act
-//     airport.landPlane(plane1);
-//     airport.landPlane(plane2);
-//     airport.landPlane(plane3);
-//     actualOutput = airport.planesList.length;
+it ("should be able to tell a plane to take off from the airport", () => {
+    //Arrange
+    let airport = new Airport(1);
+    let plane1 = new Plane("DF123");
+    airport.landPlane(plane1);
+    let expectedOutput = 0;
+    let actualOutput;
 
-//     //Assert
-//     assertEquals(actualOutput, expectedOutput);
+    //Act
+    airport.takeOffPlane(plane1);
+    actualOutput = airport.getNumberOfPlanes();
+
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
+});
