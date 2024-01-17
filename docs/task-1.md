@@ -11,4 +11,7 @@ This software is intended to automate the process of controlling air traffic at 
 
 ## Risks
 
-- Air traffic controllers need up-to-date, accurate information on the state of the airport to be able to safely direct planes, so not having this software could impact flight safety
+- Air traffic controllers need up-to-date, accurate information on the state of the airport to be able to safely direct planes, so not having this software could impact flight safety.
+
+//what could go wrong in the real world that the software cannot deal with - what if you try to add duplicate planes, exceed the airport capacity
+- if software stops working, what are the risks to the business

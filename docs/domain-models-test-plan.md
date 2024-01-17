@@ -70,8 +70,6 @@ As an air traffic controller, I want to be able to instruct a plane to take off 
 - test that plane has taken off from airport - planesArray length decreased by 1
 - test that the plane that takes off was the plane that was told to take off - plane ID can't be found in array any more
 - test that array doesn't change if the planeID supplied is not already at the airport
-- test that array doesn't change if the parameter Plane is null 
-- test that function throws an error if an invalid data type is passed as a parameter
 
 6. As an air traffic controller, I want to check if a plane is already at the airport, so I can either tell it to take off or allow it to land.
 
@@ -84,7 +82,5 @@ As an air traffic controller, I want to be able to instruct a plane to take off 
 
 - test that function returns true when the plane is at the airport - plane's ID can be found in the planesArray
 - test that function returns false when the plane is not at the airport - plane's ID cannot be found in the planesArray
-- test that function throws an error if a null value is passed as a parameter
-- test that function throws an error if an invalid data type is passed as a parameter
 
 

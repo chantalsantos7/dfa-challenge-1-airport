@@ -180,7 +180,7 @@ it("should not let a plane land at the airport if the airport is full", () => {
 
 console.log("\n***Plane Take-Off Tests***\n");
 
-it ("should be able to tell a plane to take off from the airport", () => {
+it ("should be able to tell a plane to take off from the airport, decreasing planesArray length by 1", () => {
     //Arrange
     let airport = new Airport(1);
     let plane1 = new Plane("DF123");
@@ -194,4 +194,34 @@ it ("should be able to tell a plane to take off from the airport", () => {
 
     //Assert
     assertEquals(actualOutput, expectedOutput);
+});
+
+it ("test that the plane that takes off was the plane that was told to take off - plane ID can't be found in array any more", () => {
+    //Arrange
+    let airport = new Airport(1);
+    let plane1 = new Plane("DF123");
+    airport.landPlane(plane1);
+    let expectedOutput = -1;
+    let actualOutput;
+
+    //Act
+    airport.takeOffPlane(plane1);
+    actualOutput = airport.findPlane(plane1);
+
+    //Assert
+    assertEquals(actualOutput, expectedOutput);
+});
+
+it ("should return true if plane is at airport", () => {
+    //Arrange
+    let plane = new Plane("DF342");
+    let airport = new Airport(1);
+    airport.landPlane(plane);
+    let actualOutput;
+    
+    //Act
+    actualOutput = airport.isPlaneAtAirport(plane);
+
+    //Assert
+    assertBooleanTrue(actualOutput);
 });
