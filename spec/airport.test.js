@@ -225,3 +225,19 @@ it ("should return true if plane is at airport", () => {
     //Assert
     assertBooleanTrue(actualOutput);
 });
+
+it("should return false if plane is not at airport", () => 
+{
+    //Arrange
+    let plane = new Plane("DF342");
+    let airport = new Airport(1);
+    airport.landPlane(plane);
+    airport.takeOffPlane(plane);
+    let actualOutput;
+    
+    //Act
+    actualOutput = airport.isPlaneAtAirport(plane);
+
+    //Assert
+    assertBooleanFalse(actualOutput);
+});
