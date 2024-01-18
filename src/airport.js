@@ -4,10 +4,11 @@ class Airport {
 
     constructor(planeCapacity = 0)
     {
+        
         this.#planeCapacity = planeCapacity;
     }
 
-    landPlane(plane)
+    tellPlaneToLand(plane)
     {
         if (!plane || !plane.getId()) return;
         if (!this.isPlaneAtAirport(plane) && !this.isAirportFull())
@@ -32,12 +33,18 @@ class Airport {
         {
             if (this.#planesList[i] === plane) return i;
         }
-        return -1;
+        //console.log(`Plane ${plane.getId()} is not currently at the airport.`);
+        return `Plane ${plane.getId()} is not currently at the airport.`;
     }
 
     getNumberOfPlanes()
     {
         return this.#planesList.length;
+    }
+
+    getPlanesCurrentlyAtAirport()
+    {
+        return this.#planesList;
     }
 
     setPlaneCapacity(newPlaneCapacity)

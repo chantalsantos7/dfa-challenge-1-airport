@@ -62,7 +62,7 @@ it("isAirportFull should return true when the airport has the maximum number of 
     let plane = new Plane("DF2314");
 
     //Act
-    airport.landPlane(plane);
+    airport.tellPlaneToLand(plane);
     let actualOutput = airport.isAirportFull();
 
     //Assert
@@ -75,7 +75,7 @@ it("isAirportFull should return false when the airport does not have the maximum
     let plane = new Plane("DF2314");
 
     //Act
-    airport.landPlane(plane);
+    airport.tellPlaneToLand(plane);
     let actualOutput = airport.isAirportFull();
 
     //Assert
@@ -91,7 +91,7 @@ it("should be able to tell a plane to land at the airport", () => {
     let actualOutput;
 
     //Act
-    airport.landPlane(plane);
+    airport.tellPlaneToLand(plane);
     actualOutput = airport.getNumberOfPlanes();
 
     //Assert
@@ -106,7 +106,7 @@ it("should test that the plane supplied has landed at the airport", () => {
     let actualOutput;
 
     //Act
-    airport.landPlane(plane);
+    airport.tellPlaneToLand(plane);
     actualOutput = airport.findPlane(plane); //modify something to find the plane
 
     //Assert
@@ -122,7 +122,7 @@ it("should not allow a plane without an ID to land at the airport", () => {
     let actualOutput;
 
     //Act
-    airport.landPlane(plane);
+    airport.tellPlaneToLand(plane);
     actualOutput = airport.getNumberOfPlanes();
 
     //Assert
@@ -137,7 +137,7 @@ it("should not allow a null Plane to land at the airport", () => {
     let actualOutput;
 
     //Act
-    airport.landPlane(plane);
+    airport.tellPlaneToLand(plane);
     actualOutput = airport.getNumberOfPlanes();
 
     //Assert
@@ -149,11 +149,11 @@ it("should not let a plane land at the airport if it is already there", () => {
     //Arrange
     let airport = new Airport(2);
     let plane1 = new Plane("DF123");
-    airport.landPlane(plane1);
+    airport.tellPlaneToLand(plane1);
     let expectedOutput = 1;
 
     //Act
-    airport.landPlane(plane1);
+    airport.tellPlaneToLand(plane1);
     let actualOutput = airport.getNumberOfPlanes();
 
     //Assert
@@ -169,9 +169,9 @@ it("should not let a plane land at the airport if the airport is full", () => {
     let expectedOutput = airport.getPlaneCapacity();
 
     //Act
-    airport.landPlane(plane1);
-    airport.landPlane(plane2);
-    airport.landPlane(plane3);
+    airport.tellPlaneToLand(plane1);
+    airport.tellPlaneToLand(plane2);
+    airport.tellPlaneToLand(plane3);
     let actualOutput = airport.getNumberOfPlanes();
 
     //Assert
@@ -180,11 +180,39 @@ it("should not let a plane land at the airport if the airport is full", () => {
 
 console.log("\n***Plane Take-Off Tests***\n");
 
+it ("should return true if plane is at airport", () => {
+    //Arrange
+    let plane = new Plane("DF342");
+    let airport = new Airport(1);
+    airport.tellPlaneToLand(plane);
+    let actualOutput;
+    
+    //Act
+    actualOutput = airport.isPlaneAtAirport(plane);
+
+    //Assert
+    assertBooleanTrue(actualOutput);
+});
+
+it("should return false if plane is not at airport", () => 
+{
+    //Arrange
+    let plane = new Plane("DF342");
+    let airport = new Airport(1);
+    let actualOutput;
+    
+    //Act
+    actualOutput = airport.isPlaneAtAirport(plane);
+
+    //Assert
+    assertBooleanFalse(actualOutput);
+});
+
 it ("should be able to tell a plane to take off from the airport, decreasing planesArray length by 1", () => {
     //Arrange
     let airport = new Airport(1);
     let plane1 = new Plane("DF123");
-    airport.landPlane(plane1);
+    airport.tellPlaneToLand(plane1);
     let expectedOutput = 0;
     let actualOutput;
 
@@ -200,8 +228,8 @@ it ("test that the plane that takes off was the plane that was told to take off 
     //Arrange
     let airport = new Airport(1);
     let plane1 = new Plane("DF123");
-    airport.landPlane(plane1);
-    let expectedOutput = -1;
+    airport.tellPlaneToLand(plane1);
+    let expectedOutput = `Plane ${plane1.getId()} is not currently at the airport.`;
     let actualOutput;
 
     //Act
@@ -212,32 +240,20 @@ it ("test that the plane that takes off was the plane that was told to take off 
     assertEquals(actualOutput, expectedOutput);
 });
 
-it ("should return true if plane is at airport", () => {
+it ("should not change array if the supplied plane is not already at the airport", () => {
     //Arrange
-    let plane = new Plane("DF342");
-    let airport = new Airport(1);
-    airport.landPlane(plane);
-    let actualOutput;
-    
+    let airport = new Airport(2);
+    let plane = new Plane("DF123");
+    let plane2 = new Plane("DF12");
+    let expectedOutput, actualOutput;
+    expectedOutput = 1;
+    airport.tellPlaneToLand(plane);
+
     //Act
-    actualOutput = airport.isPlaneAtAirport(plane);
+    airport.takeOffPlane(plane2);
+    actualOutput = airport.getNumberOfPlanes();
 
     //Assert
-    assertBooleanTrue(actualOutput);
-});
+    assertEquals(actualOutput, expectedOutput);
 
-it("should return false if plane is not at airport", () => 
-{
-    //Arrange
-    let plane = new Plane("DF342");
-    let airport = new Airport(1);
-    airport.landPlane(plane);
-    airport.takeOffPlane(plane);
-    let actualOutput;
-    
-    //Act
-    actualOutput = airport.isPlaneAtAirport(plane);
-
-    //Assert
-    assertBooleanFalse(actualOutput);
 });
