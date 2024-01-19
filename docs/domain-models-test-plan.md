@@ -1,11 +1,5 @@
 # Domain Models and Test Plan
 
-- A representation of the airport is needed in the software that defines the maximum capacity of the number of planes that can be at the airport at any one time
-  - This capacity should have the ability to be overridden as appropriate
-- Air Traffic Controllers need to be able to:
-  - Instruct a plane to land at an airport if the airport is not full and the plane is not already at the airport
-  - Instruct a plane to take off from an airport as long as it is currently at the airport
-
 ## User Stories
 
 1. As an air traffic controller, I want to be able to see the capacity of the airport at any one time, so I know the number of planes that can land at the airport
@@ -82,5 +76,3 @@ As an air traffic controller, I want to be able to instruct a plane to take off 
 
 - test that function returns true when the plane is at the airport - plane's ID can be found in the planesArray
 - test that function returns false when the plane is not at the airport - plane's ID cannot be found in the planesArray
-
-

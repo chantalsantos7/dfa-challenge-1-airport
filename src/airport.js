@@ -15,11 +15,22 @@ class Airport {
         {
             this.#planesList.push(plane);
         }
+        else
+        {
+            return `Plane ${plane.getId()} cannot land.`
+        }
     }
 
     takeOffPlane(plane)
     {
-        this.#planesList = this.#planesList.filter(el => el !== plane);
+        if (this.isPlaneAtAirport(plane))
+        {
+            this.#planesList = this.#planesList.filter(el => el !== plane);
+        }
+        else {
+            return `Plane ${plane.getId()} is not at the airport, so cannot be told to take off.`
+        }
+        
     }
 
     isPlaneAtAirport(planeToFind)
